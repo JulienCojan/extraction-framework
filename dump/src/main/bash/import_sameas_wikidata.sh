@@ -2,8 +2,19 @@
 
 export LC_ALL=C
 
-TGT_WP='fr'
 BASE_DIR='/data/dbpedia-release/data' #idem 'base-dir' in extraction.properties
+TGT_WP='fr'
+while getopts d:l: option; do
+  case $option in
+    d) BASE_DIR=$OPTARG;;
+    l) TGT_WP=$OPTARG;;
+    \?) echo "unsupported option $option";;
+    :) "option $option requires an argument";;
+  esac
+done
+echo "BASE_DIR: $BASE_DIR" 
+echo "TGT_WP: ${TGT_WP}" 
+
 
 WD_DATE=$(ls -d ${BASE_DIR}/wikidatawiki/* | grep -o "[0-9]\{8\}$" | sort -r | head -n 1)
 WP_DATE=$(ls -d ${BASE_DIR}/${TGT_WP}wiki/* | grep -o "[0-9]\{8\}$" | sort -r | head -n 1)

@@ -2,8 +2,18 @@
 
 export LC_ALL=C
 
-TGT_WP='fr'
 BASE_DIR='/data/dbpedia-release/data' #idem 'base-dir' in extraction.properties
+TGT_WP='fr'
+while getopts d:l: option; do
+  case $option in
+    d) BASE_DIR=$OPTARG;;
+    l) TGT_WP=$OPTARG;;
+    \?) echo "unsupported option $option";;
+    :) "option $option requires an argument";;
+  esac
+done
+echo "BASE_DIR: $BASE_DIR" 
+echo "TGT_WP: ${TGT_WP}" 
 
 # lang codes from which will be imported abstracts and labels
 IMPORT_FROM=('ca' 'de' 'en' 'es' 'eu' 'it' 'ja' 'oc' 'pt' 'ru' 'zh')
