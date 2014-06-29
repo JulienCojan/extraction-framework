@@ -43,8 +43,10 @@ for LANG in "${IMPORT_FROM[@]}"; do
       join -13 -21 ${TMP_LL} <(bzcat ${ABS_FILE}| sort -k 1 -T "/home/jcojan/SharedFolder/tmp/" ) | \
       sed 's/<[^>]*> \(<[^>]*>\) <[^>]*> \./\1/' | gzip > ${OUT_ABS}
 
-      rm $TMP_LL
+      echo "  ${OUT_ABS}"
+
       rm $ABS_FILE
     done #ABS
 
+    rm $TMP_LL
 done #LANG
