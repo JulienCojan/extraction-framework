@@ -1,5 +1,10 @@
 #!/bin/bash
 
+##
+# usage:
+# ./import_external_data.sh -d [dump_base_dir] -f [language code]
+##
+
 BASE_DIR='/data/dbpedia-release/data' #idem 'base-dir' in extraction.properties
 TGT_WP='fr'
 while getopts d:l: option; do

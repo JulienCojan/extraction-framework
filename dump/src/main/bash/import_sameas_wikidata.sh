@@ -1,5 +1,10 @@
 #!/bin/bash
 
+##
+# usage:
+# ./import_sameas_wikidata.sh -d [dump_base_dir] -f [language code]
+##
+
 export LC_ALL=C
 
 BASE_DIR='/data/dbpedia-release/data' #idem 'base-dir' in extraction.properties
